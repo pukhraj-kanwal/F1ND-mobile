@@ -1,29 +1,92 @@
 {
   "expo": {
-    "name": "F1ND-mobile",
-    "slug": "F1ND-mobile",
+    "name": "F1ND",
+    "slug": "f1nd-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "scheme": "f1nd",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.f1nd.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "F1ND needs access to your camera to take photos for your profile and activities.",
+        "NSPhotoLibraryUsageDescription": "F1ND needs access to your photo library to select images for your profile and activities.",
+        "NSLocationWhenInUseUsageDescription": "F1ND uses your location to show nearby activities and events.",
+        "NSMicrophoneUsageDescription": "F1ND needs access to your microphone for video calls and voice messages."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.f1nd.app",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.VIBRATE"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./assets/notification-sound.wav"
+          ]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "F1ND uses your location to show nearby activities and events."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "F1ND needs access to your camera to take photos for your profile and activities."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "F1ND needs access to your photo library to select images for your profile and activities."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
     }
   }
 }
